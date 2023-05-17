@@ -1,0 +1,20 @@
+body {
+    background-color: #ccc;
+}
+
+.custom-card {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #86c0ff; /* Cor azul vibrante */
+    border: 1px solid #000000; /* Bordas cinzas */
+    border-radius: 5px; /* Borda arredondada */
+    color: #fff; /* Cor do texto */
+}
+
+.tarefas {
+    height: 100%;
+    font-size: 24px;
+}
