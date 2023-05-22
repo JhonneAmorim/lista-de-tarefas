@@ -23,6 +23,9 @@
                     <a class="nav-link" href="{{ route('tasks.index') }}">Minhas Tarefas</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('tasks.create') }}">Criar Tarefas</a>
+                </li>
+                <li class="nav-item">
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
                         <button type="submit" class="nav-link btn btn-link">Sair</button>
