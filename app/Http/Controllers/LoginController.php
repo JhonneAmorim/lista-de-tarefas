@@ -12,7 +12,7 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
+            'email' => 'required',
             'password' => 'required',
         ]);
 
@@ -22,13 +22,13 @@ class LoginController extends Controller
                 ->withInput();
         }
 
-        $name = $request->input('name');
+        $email = $request->input('email');
         $password = $request->input('password');
 
         $remember_me = false;
         Session::start();
-        if (Auth::attempt(['name' => $name, 'password' => $password], $remember_me)) {
-            return redirect()->intended('/');
+        if (Auth::attempt(['email' => $email, 'password' => $password], $remember_me)) {
+            return redirect()->intended('/')->with('login', $email . ' Logado com sucesso!');
         } else {
             return back()->with('error', 'Usuário ou senha inválidos');
         }
@@ -42,6 +42,6 @@ class LoginController extends Controller
 
         Session::regenerate();
 
-        return redirect()->route('login');
+        return redirect('/');
     }
 }

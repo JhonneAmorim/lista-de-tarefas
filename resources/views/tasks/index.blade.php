@@ -6,7 +6,7 @@
                     Crie Uma Tarefa
                 </div>
                 <div class="card-body">
-                    <p class="card-text d-flex justify-content-center align-items-center tarefas" >Adicionar Tarefas</p>
+                    <p class="card-text d-flex justify-content-center align-items-center tasks" >Adicionar Tarefas</p>
                 </div>
             </div>
         </div>
