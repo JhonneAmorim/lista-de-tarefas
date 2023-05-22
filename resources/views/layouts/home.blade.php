@@ -12,7 +12,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-info border-bottom border-light">
-        <a class="navbar-brand" href="#">ToDoList</a>
+        <a class="navbar-brand" href="{{ route('home') }}">ToDoList</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#textoNavbar" aria-controls="textoNavbar" aria-expanded="false" aria-label="Alterna navegação">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -114,13 +114,46 @@
         </div>
     </div>
 
-    <section class="container">
-        @include('tasks.index')
-    </section>
+    @if(Request::is('/'))
+    <div class="welcome-container">
+        <div class="welcome-animation">
+            <h1>Bem-vindo hoje é um belo dia para organizar suas tarefas!!!</h1>
+            <p class="welcome-animation">Enquanto pensa quais tarefas criar que tal um joguinho?? Go Go Go</p>
+        </div>
+
+        <div class="tic-tac-toe">
+            <div id="successMessage" class="success-message"></div>
+            <h2>Jogo da Velha</h2>
+            <div class="board">
+                <div class="row">
+                    <div class="cell" onclick="makeMove(0)"></div>
+                    <div class="cell" onclick="makeMove(1)"></div>
+                    <div class="cell" onclick="makeMove(2)"></div>
+                </div>
+                <div class="row">
+                    <div class="cell" onclick="makeMove(3)"></div>
+                    <div class="cell" onclick="makeMove(4)"></div>
+                    <div class="cell" onclick="makeMove(5)"></div>
+                </div>
+                <div class="row">
+                    <div class="cell" onclick="makeMove(6)"></div>
+                    <div class="cell" onclick="makeMove(7)"></div>
+                    <div class="cell" onclick="makeMove(8)"></div>
+                </div>
+            </div>
+            <button onclick="resetGame()">Reiniciar</button>
+        </div>
+    </div>
+
+
+    @endif
+
+    @yield('content')
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="../../js/script.js"></script>
 </body>
 
 </html>

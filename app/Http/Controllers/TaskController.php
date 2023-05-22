@@ -9,10 +9,8 @@ class TaskController extends Controller
 {
     public function index()
     {
-        // Aqui você pode adicionar a lógica para buscar as tarefas do usuário
         $tasks = auth()->user()->tasks;
-
-        return view('tasks.index', ['tasks' => $tasks]);
+        return view('tasks.index', compact('tasks'));
     }
 
     public function store(Request $request)
@@ -22,6 +20,11 @@ class TaskController extends Controller
         $task->user_id = auth()->id();
         $task->save();
 
-        return redirect()->route('tasks.index');
+        return redirect()->route('tasks.index')->with('success', 'Tarefa criada com sucesso!');
+    }
+
+    public function create()
+    {
+        return view('tasks.create');
     }
 }
