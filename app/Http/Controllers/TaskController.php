@@ -7,8 +7,13 @@ use App\Models\Task;
 
 class TaskController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->has('edit')) {
+            $task = Task::find($request->input('edit'));
+            return view('tasks.index', compact('task'));
+        }
+
         $tasks = auth()->user()->tasks;
         return view('tasks.index', compact('tasks'));
     }
@@ -47,4 +52,5 @@ class TaskController extends Controller
 
         return redirect()->route('tasks.index')->with('success', 'Tarefa excluída com sucesso!');
     }
+    
 }
